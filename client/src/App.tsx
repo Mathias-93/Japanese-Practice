@@ -1,4 +1,5 @@
 import { Flex, Heading, Box } from "@chakra-ui/react";
+import { Link } from "react-router";
 
 function App() {
   return (
@@ -20,23 +21,24 @@ function App() {
         px="5"
       >
         {["Dates", "Time", "Numbers"].map((option) => (
-          <Box
-            key={option}
-            flex="1"
-            textAlign="center"
-            fontSize="lg"
-            rounded="md"
-            borderWidth="1px"
-            borderColor="gray.400"
-            padding="6"
-            cursor="pointer"
-            _hover={{
-              borderColor: "blue.400",
-              bg: "gray.800",
-            }}
-          >
-            {option}
-          </Box>
+          <Link key={option} to={`/${option.toLowerCase()}`}>
+            <Box
+              flex="1"
+              textAlign="center"
+              fontSize="lg"
+              rounded="md"
+              borderWidth="1px"
+              borderColor="gray.400"
+              padding="6"
+              cursor="pointer"
+              _hover={{
+                borderColor: "blue.400",
+                bg: "gray.800",
+              }}
+            >
+              {option}
+            </Box>
+          </Link>
         ))}
       </Flex>
     </Flex>
